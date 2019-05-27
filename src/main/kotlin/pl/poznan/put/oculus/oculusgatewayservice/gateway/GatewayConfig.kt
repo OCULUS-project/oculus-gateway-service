@@ -7,17 +7,17 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-class GatewayConfig (
+class GatewayConfig(
         @Value("\${oculus.patients-db-service}")
         val patientsDbServiceHost: String
 ) {
     @Bean
     fun customRouteLocator(builder: RouteLocatorBuilder): RouteLocator {
         return builder.routes()
-                .route("patients-db-service") {
-                    r -> r.path("/patients-db/**")
-                        .filters { f -> f.rewritePath("/patients-db", "") }
-                        .uri(host(patientsDbServiceHost))
+                .route("patients-db-service") { r ->
+                    r.path("/patients-db/**")
+                            .filters { f -> f.rewritePath("/patients-db", "") }
+                            .uri(host(patientsDbServiceHost))
                 }
                 .build()
     }
