@@ -1,9 +1,10 @@
-FROM gradle:5.4.1-jdk8-alpine
+FROM openjdk:8-slim
 
-COPY --chown=gradle:gradle . /app
+COPY build /app/build
 
 WORKDIR /app
-RUN gradle build
 
+ENV spring_profiles_active dev
 EXPOSE 8080
-CMD java -jar build/libs/oculus-gateway-service-0.0.1-SNAPSHOT.jar
+
+CMD java -jar build/libs/oculus-gateway-service-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=dev

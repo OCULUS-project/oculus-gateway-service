@@ -9,7 +9,9 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class GatewayConfig(
         @Value("\${oculus.patients-db-service}")
-        val patientsDbServiceHost: String
+        val patientsDbServiceHost: String,
+        @Value("\${oculus.images-service}")
+        val imagesServiceHost: String
 ) {
     @Bean
     fun customRouteLocator(builder: RouteLocatorBuilder): RouteLocator {
@@ -18,6 +20,10 @@ class GatewayConfig(
                     r.path("/patients-db/**")
                             .filters { f -> f.rewritePath("/patients-db", "") }
                             .uri(host(patientsDbServiceHost))
+                }
+                .route("images-service") { r ->
+                    r.path("/img/**")
+                            .uri(host(imagesServiceHost))
                 }
                 .build()
     }
