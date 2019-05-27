@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "oculus.patients-db-service",
+      "type": "java.lang.String",
+      "description": "Description for oculus.patients-db-service."
+    }
+  ] }
