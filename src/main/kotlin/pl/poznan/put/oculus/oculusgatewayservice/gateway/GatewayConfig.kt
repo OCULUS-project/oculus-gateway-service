@@ -21,15 +21,14 @@ class GatewayConfig(
 
                 // patients
                 .route("patients-db-service") { r ->
-                    r.path("/patients-db/**")
-                            .filters { it.remove("/patients-db") }
+                    r.path("/patients/**")
                             .to(patientsDbServiceHost)
                 }
 
                 // images
                 .route("images-service") { r ->
                     r.path("/img/**")
-                            .uri(host(imagesServiceHost))
+                            .to(imagesServiceHost)
                 }
                 .route("images-service-swagger") { r ->
                     r.path("/swagger/img/**")
