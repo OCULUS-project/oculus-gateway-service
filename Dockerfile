@@ -1,4 +1,4 @@
-FROM openjdk:8-slim
+FROM openjdk:8-jdk-alpine
 
 COPY build /app/build
 
