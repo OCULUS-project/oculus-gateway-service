@@ -29,7 +29,7 @@ class GatewayConfig(
                 r.path("/$path/**") to host
             }
             route("$id-swagger") { r ->
-                val swaggerPath = "/swagger/$path"
+                val swaggerPath = "/swagger/$path/"
                 r.path("$swaggerPath/**")
                         .filters{ it.remove(swaggerPath) } to host
             }
