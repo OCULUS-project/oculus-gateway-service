@@ -16,13 +16,16 @@ class GatewayConfig(
         @Value("\${oculus.images-service}")
         val imagesServiceHost: String,
         @Value("\${oculus.facts-service}")
-        val factsServiceHost: String
+        val factsServiceHost: String,
+        @Value("\${oculus.core-service}")
+        val coreServiceHost: String
 ) {
     @Bean
     fun customRouteLocator(builder: RouteLocatorBuilder): RouteLocator = builder.routes()
             .route("patients-db-service", "patients", patientsDbServiceHost)
             .route("images-service", "img", imagesServiceHost)
             .route("facts-service", "facts", factsServiceHost)
+            .route("core-service", "jobs", factsServiceHost)
             .build()
 
     companion object {
