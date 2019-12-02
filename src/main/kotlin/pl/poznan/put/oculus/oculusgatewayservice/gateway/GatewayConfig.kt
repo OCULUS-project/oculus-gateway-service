@@ -25,7 +25,7 @@ class GatewayConfig(
             .route("patients-db-service", "patients", patientsDbServiceHost)
             .route("images-service", "img", imagesServiceHost)
             .route("facts-service", "facts", factsServiceHost)
-            .route("core-service", "jobs", factsServiceHost)
+            .route("core-service", "jobs", coreServiceHost)
             .build()
 
     companion object {
