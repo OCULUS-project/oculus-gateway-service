@@ -7,4 +7,4 @@ WORKDIR /app
 ENV spring_profiles_active dev
 EXPOSE 8080
 
-CMD java -jar build/libs/oculus-gateway-service-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=dev
+CMD java -jar build/libs/oculus-gateway-service-0.1.0.jar -Dspring.profiles.active=dev
